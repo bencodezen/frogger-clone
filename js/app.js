@@ -55,16 +55,12 @@ Player.prototype.handleInput = function(key) {
 
     if (key === 'up') {
         this.y -= upMove;
-        console.log(this.x + ", " + this.y);
     } else if (key === 'right') {
         this.x += rightMove;
-        console.log(this.x + ", " + this.y);
     } else if (key === 'left') {
         this.x -= leftMove;
-        console.log(this.x + ", " + this.y);
     } else if (key === 'down') {
         this.y += downMove;
-        console.log(this.x + ", " + this.y);
     }
 };
 
