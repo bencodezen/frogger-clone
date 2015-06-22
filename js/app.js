@@ -38,14 +38,33 @@ Player.prototype.render = function() {
 
 Player.prototype.handleInput = function(key) {
     // Tiles are spaced 100 by 80
+    
+    // Baseline position (top left) is 0, -20
+    
+    // Max x range is 400
+    var xRange = [0, 400];
+
+    // Max y range is 380
+    var yRange = [-20, 380];
+
+    // Calculate movement amount based on borders
+    var upMove = (this.y - 80 >= yRange[0]) ? 80 : 0;
+    var rightMove = (this.x + 100 <= xRange[1]) ? 100 : 0;
+    var downMove = (this.y + 80 <= yRange[1]) ? 80 : 0;
+    var leftMove = (this.x - 100 >= xRange[0]) ? 100 : 0;
+
     if (key === 'up') {
-        this.y -= 80;
+        this.y -= upMove;
+        console.log(this.x + ", " + this.y);
     } else if (key === 'right') {
-        this.x += 100;
+        this.x += rightMove;
+        console.log(this.x + ", " + this.y);
     } else if (key === 'left') {
-        this.x -= 100;
+        this.x -= leftMove;
+        console.log(this.x + ", " + this.y);
     } else if (key === 'down') {
-        this.y += 80;
+        this.y += downMove;
+        console.log(this.x + ", " + this.y);
     }
 };
 
