@@ -36,7 +36,18 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.handleInput = function() {};
+Player.prototype.handleInput = function(key) {
+    // Tiles are spaced 100 by 80
+    if (key === 'up') {
+        this.y -= 80;
+    } else if (key === 'right') {
+        this.x += 100;
+    } else if (key === 'left') {
+        this.x -= 100;
+    } else if (key === 'down') {
+        this.y += 80;
+    }
+};
 
 Player.prototype.reset = function() {
     this.x = 0;
