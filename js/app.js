@@ -16,6 +16,11 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x += 50 * dt;
+
+    // This resets the enemy position once the enemy is off the map
+    if (this.x > 510) {
+        this.reset();
+    }
 };
 
 // Draw the enemy on the screen, required method for game
