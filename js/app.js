@@ -43,12 +43,17 @@ var Player = function() {
 };
 
 Player.prototype.update = function() {
-    // Check whether enemy hits player
-    for (var i = 0; i < allEnemies.length; i++ ) {
-        var enemy = allEnemies[i];
-        if (enemy.y === this.y) {
-            if (enemy.x >= this.x - 70 && enemy.x <= this.x + 50) {
-                this.reset();
+    // Win condition
+    if (this.y === -20) {
+        this.reset();
+    } else {
+        // Check whether enemy hits player
+        for (var i = 0; i < allEnemies.length; i++ ) {
+            var enemy = allEnemies[i];
+            if (enemy.y === this.y) {
+                if (enemy.x >= this.x - 70 && enemy.x <= this.x + 50) {
+                    this.reset();
+                }
             }
         }
     }
