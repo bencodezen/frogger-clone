@@ -42,7 +42,17 @@ var Player = function() {
     this.reset();
 };
 
-Player.prototype.update = function() {};
+Player.prototype.update = function() {
+    // Check whether enemy hits player
+    for (var i = 0; i < allEnemies.length; i++ ) {
+        var enemy = allEnemies[i];
+        if (enemy.y === this.y) {
+            if (enemy.x >= this.x - 70 && enemy.x <= this.x + 50) {
+                this.reset();
+            }
+        }
+    }
+};
 
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
