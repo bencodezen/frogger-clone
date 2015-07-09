@@ -6,6 +6,7 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+
     this.reset();
 };
 
@@ -15,8 +16,8 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x += 50 * dt;
-
+    this.x += 100 * dt;
+    // console.log(this.x + ", " + this.y);
     // This resets the enemy position once the enemy is off the map
     if (this.x > 510) {
         this.reset();
@@ -29,8 +30,12 @@ Enemy.prototype.render = function() {
 };
 
 Enemy.prototype.reset = function() {
-    this.x = 0;
-    this.y = 60;
+    // These are the possible position properties for each enemy
+    var startingX = [-100, -75, -50, -25, 0];
+    var startingY = [60, 140, 220];
+
+    this.x = startingX[Math.floor(Math.random() * startingX.length)];
+    this.y = startingY[Math.floor(Math.random() * startingY.length)];
 };
 
 // Now write your own player class
