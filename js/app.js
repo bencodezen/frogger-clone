@@ -16,7 +16,11 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x += 100 * dt;
+
+    // Base speed is 100 while max speed seems to be 500
+    var speed = Math.floor(Math.random() * 500) + 100;
+
+    this.x += speed * dt;
     // console.log(this.x + ", " + this.y);
     // This resets the enemy position once the enemy is off the map
     if (this.x > 510) {
@@ -31,7 +35,7 @@ Enemy.prototype.render = function() {
 
 Enemy.prototype.reset = function() {
     // These are the possible position properties for each enemy
-    var startingX = [-100, -75, -50, -25, 0];
+    var startingX = [-100, -75, -50, -25];
     var startingY = [60, 140, 220];
 
     this.x = startingX[Math.floor(Math.random() * startingX.length)];
