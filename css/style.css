@@ -1,3 +1,22 @@
 body {
-    text-align: center;
+  text-align: center;
+}
+
+canvas {
+	margin-top: -50px;
+}
+
+h1 {
+	margin-bottom: 0;
+}
+
+table {
+	margin: 0 auto;
+}
+
+th,
+tr {
+	padding: 10px;
+	font-size: 1.5em;
+	font-family: sans-serif;
 }

@@ -54,6 +54,7 @@ var Player = function() {
 Player.prototype.update = function() {
     // Win condition
     if (this.y === -20) {
+        scoreWin();
         this.reset();
     } else {
         // Check whether enemy hits player
@@ -61,6 +62,7 @@ Player.prototype.update = function() {
             var enemy = allEnemies[i];
             if (enemy.y === this.y) {
                 if (enemy.x >= this.x - 70 && enemy.x <= this.x + 50) {
+                    scoreLoss();
                     this.reset();
                 }
             }
@@ -110,8 +112,10 @@ Player.prototype.reset = function() {
 // Place the player object in a variable called player
 
 var bug1 = new Enemy();
+var bug2 = new Enemy();
+var bug3 = new Enemy();
 
-var allEnemies = [bug1];
+var allEnemies = [bug1, bug2, bug3];
 
 var player = new Player();
 
@@ -127,3 +131,16 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+var winCount = 0;
+var loseCount = 0;
+
+var scoreWin = function() {
+    winCount++;
+    document.getElementById("win").innerHTML = winCount.toString();
+};
+
+var scoreLoss = function() {
+    loseCount++;
+    document.getElementById("loss").innerHTML = loseCount.toString();
+};
